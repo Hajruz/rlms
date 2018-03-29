@@ -1,0 +1,7 @@
+.row
+  h2 Тесты по курсу:
+  = topic.title
+  - topic.questions.each do |question|
+    .panel.panel-default
+      .panel-heading  Вопрос #{question.title}
+      .panel-body

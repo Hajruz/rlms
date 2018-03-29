@@ -35,7 +35,9 @@ Rails.application.routes.draw do
     resources :available_courses, only: :index
     resources :course_participations, only: %i(create destroy)
     resources :courses, param: :slug, only: %i(index show)
-    resources :topics, only: :show
+    resources :topics, only: :show do
+      resources :questions
+    end
   end
 
   authenticated :administrator do
