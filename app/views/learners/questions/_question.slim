@@ -1,0 +1,7 @@
+li.list-group-item.question-container data-question-id=question.id
+  .panel-default
+    .panel-heading
+      b #{question.title}
+    .panel-body
+      - question.answer_variants.each do |answer_variant|
+        = render "learners/questions/answer", answer_variant: answer_variant
