@@ -1,3 +1,4 @@
 .answer-variant-text
   label
-    input name=answer_variant.question_id type="radio"  #{answer_variant.text}
+    input type="radio" name="user_answer_variant[answer_variant_id]" id="user_answer_variant_answer_variant_id" value="#{answer_variant.id}"
+    = answer_variant.text

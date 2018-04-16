@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107232125) do
+ActiveRecord::Schema.define(version: 20180330185658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,15 @@ ActiveRecord::Schema.define(version: 20171107232125) do
     t.integer "order_index"
     t.string "slug"
     t.boolean "published", default: false
+  end
+
+  create_table "user_answer_variants", force: :cascade do |t|
+    t.integer "learner_id", null: false
+    t.integer "question_id", null: false
+    t.integer "answer_variant_id", null: false
+    t.integer "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

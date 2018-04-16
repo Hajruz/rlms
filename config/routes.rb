@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :courses, param: :slug, only: %i(index show)
     resources :topics, only: :show do
       resources :questions
+      resources :user_answer_variants,only: :create
     end
   end
 

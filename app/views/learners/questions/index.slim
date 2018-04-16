@@ -1,7 +1,14 @@
 .row
-  h2 Тесты по курсу:
-  ul.list-group
-    = topic.title
-    - topic.questions.each do |question|
-      =render "learners/questions/question", question: question
-  input value="Закончить тест" type="submit"
+  h3 Тема: #{topic.title}
+  hr
+  - if @question
+    h2 = @question.title
+
+    = form_for [:learners, topic, @question.user_answer_variants.new] do |f|
+      = f.hidden_field :question_id, value: @question.id
+      - @question.answer_variants.each do |answer_variant|
+        = render "learners/questions/answer", f: f, answer_variant: answer_variant
+      hr
+      input value="Ответить" type="submit"
+  - else
+    h2 Тест пройден!

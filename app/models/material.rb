@@ -6,6 +6,6 @@ class Material < ApplicationRecord
   validates :topic_id, presence: true
 
   def title_h
-    title.present? ? title : attachment.file.filename
+    #title.present? ? title : attachment.file.filename
   end
 end
